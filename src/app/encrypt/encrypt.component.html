@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="row">
+        <div class="col-5 form-group">
+            <label for="texto-a-cifrar">Texto a Cifrar</label>
+            <textarea class="form-control" id="texto-a-cifrar" [(ngModel)]="plainText"></textarea>
+            <div class="alert alert-danger" *ngIf="errorText" role="alert">
+                El contenido cifrado es demasiado largo, Vuelva a introducir
+              </div>
+              <button type="button" class="btn btn-warning" (click)="limpiar()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eraser" viewBox="0 0 16 16">
+                <path d="M8.086 2.207a2 2 0 0 1 2.828 0l3.879 3.879a2 2 0 0 1 0 2.828l-5.5 5.5A2 2 0 0 1 7.879 15H5.12a2 2 0 0 1-1.414-.586l-2.5-2.5a2 2 0 0 1 0-2.828l6.879-6.879zm2.121.707a1 1 0 0 0-1.414 0L4.16 7.547l5.293 5.293 4.633-4.633a1 1 0 0 0 0-1.414l-3.879-3.879zM8.746 13.547 3.453 8.254 1.914 9.793a1 1 0 0 0 0 1.414l2.5 2.5a1 1 0 0 0 .707.293H7.88a1 1 0 0 0 .707-.293l.16-.16z"/>
+              </svg> Limpiar</button>
+        </div>
+        <div class="col-2" style="text-align: center; place-self: center;">
+            <button type="button" class="btn btn-primary btn-sm" (click)="encrypt()">Cifrar</button>
+            <button type="button" class="btn btn-secondary btn-sm" (click)="decrypt()">Descifrar</button>
+        </div>
+        <div class="col-5 form-group">
+            <label for="texto-cifrado">Texto Cifrado</label>
+            <textarea class="form-control" [(ngModel)]="cypherText" #textcifrado disabled></textarea>
+            <button type="button" class="btn btn-warning" (click)="copyInputMessage(textcifrado)"><i class="bi bi-clipboard"></i><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard" viewBox="0 0 16 16">
+                <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
+                <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
+              </svg> Copy</button>
+
+              <div class="form-group">
+                <label for="texto-a-cifrar">Texto Descifrado</label>
+                <textarea class="form-control" id="texto-a-cifrar" [(ngModel)]="descifradoText"></textarea>
+            </div>
+        </div>
+    </div>
+</div>

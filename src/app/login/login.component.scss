@@ -1,0 +1,30 @@
+div#ModalFail {
+    backdrop-filter: blur(2px);
+}
+
+.jumbotron{
+    margin-inline: 20px;
+}
+
+.overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    text-align: center;
+    vertical-align: middle;
+    /* background-color: rgba(70, 47, 24, 0.356); */
+    backdrop-filter: blur(2px);
+}
+
+.overlay{
+    p{
+        margin-top: 40vh;
+        font-size: 25px;
+        font-weight: 600;
+        color: #ffffff;
+        text-shadow: 0 0 4px #000;
+    }
+}

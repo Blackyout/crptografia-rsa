@@ -1,0 +1,61 @@
+<h2 class="text-center">Login</h2>
+<div *ngIf="isLoading" class="overlay"><p>Loading...</p></div>
+<div *ngIf="!logueado" class="row">
+    <div id="ModalFail" class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':noRegister}">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="alert alert-danger" role="alert">
+                        <p>{{fallido}}</p>
+                      </div>
+                      <button type="button" class="btn btn-secondary" (click)="closeModal()" data-dismiss="modal">Close</button>
+                </div>
+<!--                 <div class="modal-footer">
+                    
+                  </div> -->
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4 col-md-offset-5">
+        
+        <div class="jumbotron">
+            <form [formGroup]="angForm" (ngSubmit)="postdata(angForm)" autocomplete="off">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" formControlName="email" autocomplete="off"
+                        class="form-control input-sm" placeholder="Email">
+                        <div class="alert alert-danger" *ngIf="angForm.get('email')?.invalid && (angForm.get('email')?.dirty || angForm.get('email')?.touched)">
+                            <div class="container-error-message" *ngIf="angForm.get('email')?.hasError('required')">Email es requerido</div>
+                            <div class="container-error-message" *ngIf="angForm.get('email')?.hasError('minlength')">
+                              El email debe tener mas de 5 caracteres
+                            </div>
+                            <div class="container-error-message"
+                              *ngIf="(angForm.get('email')?.dirty || angForm.get('email')?.touched) && angForm.get('email')?.invalid">
+                              Debe tener formato email@example.com
+                            </div>
+                        </div>
+                </div>
+                <div class="form-group">
+                    <label for="Password">Password</label>
+                    <input type="password" name="Password" formControlName="password" autocomplete="off"
+                        class="form-control input-sm" placeholder="Password">
+                        <div class="alert alert-danger" *ngIf="angForm.get('password')?.invalid && (angForm.get('password')?.dirty || angForm.get('password')?.touched)">
+                            <div class="container-error-message" *ngIf="angForm.get('password')?.hasError('required')">Contraseña es requerida</div>
+
+                          </div>
+                </div>
+                <br>
+                <button type="submit" (click)="loading()" class="btn btn-success">Login</button>
+            </form>
+        </div>
+    </div>
+    <div class="col-md-5">
+    </div>
+</div>
+
+<div align="center" *ngIf="logueado">
+    <h3>Ya estas logueado :)</h3>
+    <button routerLink="dashboard"> Ir al Dashboard</button>
+</div>
