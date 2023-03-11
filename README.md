@@ -2,7 +2,7 @@
 
 =======================================================
 
-## Aplicativo desarrollado par el curso de Criptoanalis - BMA25
+## Aplicativo desarrollado para el curso de Criptoanalis - BMA25
 
 ## Universidad Nacional de Ingeniería(UNI)
 
